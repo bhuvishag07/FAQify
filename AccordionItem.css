@@ -1,0 +1,163 @@
+/* ── AccordionItem ───────────────────────────────────────────── */
+.accordion-item {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-color);
+    border-radius: 18px;
+    overflow: hidden;
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        background var(--transition-theme);
+    animation: fadeInUp 0.5s var(--delay, 0s) ease-out both;
+    backdrop-filter: blur(10px);
+}
+
+.accordion-item:hover {
+    transform: translateY(-2px) scale(1.005);
+    box-shadow: var(--shadow-medium);
+    border-color: rgba(99, 102, 241, 0.2);
+}
+
+.accordion-item.open {
+    border-color: var(--border-active);
+    box-shadow: var(--shadow-glow), var(--shadow-soft);
+    background: var(--bg-card-hover);
+}
+
+/* Header (button) */
+.accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s ease;
+    outline: none;
+}
+
+.accordion-header:focus-visible {
+    box-shadow: inset 0 0 0 2px var(--accent-start);
+}
+
+/* Number badge */
+.accordion-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    background: var(--badge-bg);
+    color: var(--badge-color);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    transition: all 0.3s ease;
+}
+
+.accordion-num.active {
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+    transform: scale(1.08);
+}
+
+/* Question text */
+.accordion-question {
+    flex: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.45;
+    transition: color var(--transition-theme);
+}
+
+.accordion-item.open .accordion-question {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Toggle icon */
+.accordion-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--badge-bg);
+    color: var(--badge-color);
+    border: 1.5px solid rgba(99, 102, 241, 0.15);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.accordion-item.open .accordion-icon {
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+    transform: rotate(180deg);
+}
+
+/* Content */
+.accordion-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+        max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.35s ease;
+}
+
+.accordion-answer {
+    padding: 0 24px 22px;
+    padding-left: calc(24px + 36px + 16px);
+    font-size: 0.91rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    transition: color var(--transition-theme);
+    border-top: 1px solid var(--border-color);
+    padding-top: 16px;
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+    .accordion-header {
+        padding: 16px 18px;
+        gap: 12px;
+    }
+
+    .accordion-num {
+        width: 30px;
+        height: 30px;
+        font-size: 0.72rem;
+        border-radius: 8px;
+    }
+
+    .accordion-question {
+        font-size: 0.9rem;
+    }
+
+    .accordion-answer {
+        padding-left: 18px;
+    }
+}

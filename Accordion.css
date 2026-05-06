@@ -1,0 +1,67 @@
+/* ── Accordion ───────────────────────────────────────────────── */
+.accordion-wrapper {
+    flex: 1;
+    min-width: 0;
+    animation: fadeInUp 0.8s 0.1s ease-out both;
+}
+
+/* Header */
+.accordion-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.alist-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.alist-count {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--badge-color);
+    background: var(--badge-bg);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 99px;
+    padding: 4px 14px;
+    transition: all var(--transition-theme);
+}
+
+.alist-reset {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 99px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.alist-reset:hover {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+.alist-search-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    transition: color var(--transition-theme);
+}
+
+/* List */
+.accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

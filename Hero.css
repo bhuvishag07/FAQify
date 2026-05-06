@@ -1,0 +1,144 @@
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+/* Eyebrow */
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--bg-accent);
+    border: 1px solid var(--border-color);
+    border-radius: 99px;
+    padding: 6px 18px;
+    margin-bottom: 28px;
+    backdrop-filter: blur(12px);
+    transition: color var(--transition-theme), background var(--transition-theme);
+}
+
+.eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(var(--accent-start), var(--accent-end));
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    display: inline-block;
+}
+
+/* Title */
+.hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    transition: color var(--transition-theme);
+}
+
+/* Underline decoration */
+.hero-underline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.underline-bar {
+    height: 2px;
+    width: 80px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    opacity: 0.7;
+}
+
+.underline-sparkle {
+    font-size: 1rem;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+/* Subtitle */
+.hero-subtitle {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    font-weight: 400;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 48px;
+    line-height: 1.75;
+    transition: color var(--transition-theme);
+}
+
+/* Stats */
+.hero-stats {
+    display: inline-flex;
+    align-items: center;
+    gap: 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 20px 40px;
+    box-shadow: var(--shadow-soft);
+    transition: all var(--transition-theme);
+    backdrop-filter: blur(12px);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color var(--transition-theme);
+}
+
+.stat-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--border-color);
+    transition: background var(--transition-theme);
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 130px 0 60px;
+    }
+
+    .hero-stats {
+        gap: 20px;
+        padding: 16px 24px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+}

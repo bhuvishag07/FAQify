@@ -1,0 +1,162 @@
+/* ── Navbar ─────────────────────────────────────────────────── */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background var(--transition-theme), border-color var(--transition-theme);
+    border-bottom: 1px solid var(--navbar-border);
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    gap: 16px;
+}
+
+/* Brand */
+.navbar-brand {
+    flex: 1;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    font-size: 28px;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.5));
+    animation: float 3s ease-in-out infinite;
+    display: block;
+    line-height: 1;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.brand-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1;
+}
+
+.brand-tagline {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color var(--transition-theme);
+}
+
+/* Center badge */
+.navbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-badge {
+    font-family: 'Outfit', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 5px 14px;
+    border-radius: 99px;
+    background: var(--badge-bg);
+    color: var(--badge-color);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    transition: all var(--transition-theme);
+    text-transform: uppercase;
+}
+
+/* Right */
+.navbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Toggle */
+.theme-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--toggle-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 99px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    min-width: 88px;
+    justify-content: space-between;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent-start);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    transform: scale(1.03);
+}
+
+.toggle-icon {
+    font-size: 14px;
+    line-height: 1;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1;
+}
+
+.toggle-thumb {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.theme-toggle.dark .toggle-thumb {
+    transform: translateX(48px) translateY(-50%);
+}
+
+.theme-toggle.dark .sun {
+    opacity: 0.4;
+}
+
+.theme-toggle.light .moon {
+    opacity: 0.4;
+}
+
+@media (max-width: 600px) {
+    .navbar-center {
+        display: none;
+    }
+
+    .brand-tagline {
+        display: none;
+    }
+
+    .brand-name {
+        font-size: 1.25rem;
+    }
+}
